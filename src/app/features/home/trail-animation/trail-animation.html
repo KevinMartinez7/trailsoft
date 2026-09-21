@@ -1,0 +1,87 @@
+<section
+  class="trail-animation"
+  [class.reduced-motion]="reducedMotion()"
+  [attr.data-stage]="currentStage().id"
+  [style.--trail-progress]="progress() + '%'"
+  [style.--trail-dashoffset]="100 - progress()"
+  aria-labelledby="trail-animation-title"
+>
+  <h2 id="trail-animation-title" class="sr-only">Del código a producción</h2>
+  <p class="sr-only">Proceso de TrailSoft: una idea pasa por arquitectura, desarrollo, integración y control de calidad hasta llegar a producción.</p>
+
+  <header class="trail-header" aria-hidden="true">
+    <span><i></i> TRAIL SYSTEM</span>
+    <strong>{{ currentStage().number }} — {{ currentStage().label }}</strong>
+  </header>
+
+  <div class="trail-canvas" aria-hidden="true">
+    <svg class="route route-desktop" viewBox="0 0 560 500" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="active-route" x1="0" y1="1" x2="1" y2="0">
+          <stop stop-color="#0D8BFF"/><stop offset="1" stop-color="#34CFBE"/>
+        </linearGradient>
+        <filter id="dot-glow" x="-200%" y="-200%" width="400%" height="400%">
+          <feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <path class="route-base" pathLength="100" d="M38 445V365Q38 350 53 350H145Q160 350 160 335V278Q160 263 175 263H268Q283 263 283 248V185Q283 170 298 170H392Q407 170 407 155V87Q407 72 422 72H522"/>
+      <path class="route-active" pathLength="100" d="M38 445V365Q38 350 53 350H145Q160 350 160 335V278Q160 263 175 263H268Q283 263 283 248V185Q283 170 298 170H392Q407 170 407 155V87Q407 72 422 72H522"/>
+    </svg>
+    <svg class="route signal-layer signal-desktop" viewBox="0 0 560 500" preserveAspectRatio="none">
+      <circle class="signal-dot" r="4"/>
+    </svg>
+
+    <svg class="route route-mobile" viewBox="0 0 320 720">
+      <path class="route-base" pathLength="100" d="M36 42V675"/>
+      <path class="route-active" pathLength="100" d="M36 42V675"/>
+    </svg>
+    <svg class="route signal-layer signal-mobile" viewBox="0 0 320 720">
+      <circle class="signal-dot" r="4"/>
+    </svg>
+
+    <ol class="stage-nodes">
+      @for (stage of stages; track stage.id; let index = $index) {
+        <li [class.reached]="isReached(index)" [class.current]="isCurrent(index)">
+          <i></i><span>{{ stage.label }}</span>
+        </li>
+      }
+    </ol>
+
+    <article class="system-module architecture-module" [class.visible]="isReached(1)">
+      <header><span>01 / ESTRUCTURA</span><i></i></header>
+      <div class="wireframe">
+        <b></b><b></b><b></b><span></span><span></span><span></span>
+      </div>
+      <footer>architecture mapped</footer>
+    </article>
+
+    <article class="system-module development-module" [class.visible]="isReached(2)">
+      <header><span>02 / COMPONENT</span><i></i><i></i></header>
+      <div class="code-lines">
+        <span><em>const</em> product = signal();</span>
+        <span>api.<b>connect</b>(endpoint);</span>
+        <span>data.<b>map</b>(schema);</span>
+        <span>return product.ready;</span>
+      </div>
+      <footer><i></i> component initialized</footer>
+    </article>
+
+    <article class="system-module product-module" [class.visible]="isReached(4)">
+      <header><span>03 / PRODUCT</span><b [class.checked]="isReached(4)">✓</b></header>
+      <div class="product-ui">
+        <aside><i></i><i></i><i></i></aside>
+        <main><span></span><div><b></b><b></b></div><span></span></main>
+      </div>
+      <div class="quality-scan" [class.active]="isCurrent(4)"></div>
+      <footer><i></i> system healthy</footer>
+    </article>
+
+    <div class="integration-status" [class.visible]="isCurrent(3)"><i></i> API CONNECTED</div>
+    <div class="quality-status" [class.visible]="isCurrent(4)">✓ TESTS PASSED</div>
+    <div class="deploy-status" [class.visible]="isReached(5)"><i></i><span>DEPLOYED<strong>SISTEMA ONLINE</strong></span></div>
+  </div>
+
+  <footer class="trail-footer" aria-hidden="true">
+    <span>DEL CÓDIGO</span><i></i><span>A PRODUCCIÓN</span>
+  </footer>
+</section>

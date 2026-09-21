@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Reemplazar DOMAIN_PENDING por el dominio definitivo antes de publicar. -->
+  <url><loc>https://DOMAIN_PENDING/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+</urlset>
