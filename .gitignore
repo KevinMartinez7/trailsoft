@@ -38,6 +38,8 @@ testem.log
 /typings
 __screenshots__/
 *.mp4
+/animacion.md
+/PROMPT MAESTRO*.md
 
 # System files
 .DS_Store
