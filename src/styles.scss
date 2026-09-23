@@ -119,3 +119,25 @@ main section[id]{scroll-margin-top:calc(var(--header) + 1.5rem)}
   .industries-section .industry-list li:last-child{grid-column:auto;min-height:98px}
 }
 @media(min-width:421px) and (max-width:720px){.industries-section .industry-list{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* Mobile AI flow: compact, legible and intentionally sequential */
+@media(max-width:720px){
+  .ai-section .section-heading{margin-bottom:2.5rem}
+  .ai-section .ai-flow{gap:0;padding:1rem;border-radius:10px;background-size:16px 16px}
+  .ai-section .flow-column{grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+  .ai-section .flow-label{grid-column:1/-1;margin:0 0 .35rem;color:#7890a2}
+  .ai-section .flow-node{min-height:40px;padding:.55rem .65rem;border-radius:4px;font-size:.67rem;line-height:1.25}
+  .ai-section .flow-node:last-child{grid-column:1/-1}
+  .ai-section .flow-node::after{display:none}
+  .ai-section .flow-lines{height:34px;margin:.25rem 0}
+  .ai-section .flow-lines span:first-child{display:block;width:1px;height:34px;background:linear-gradient(var(--blue),var(--teal));box-shadow:0 0 12px rgba(52,207,190,.22)}
+  .ai-section .flow-lines span::after{display:none}
+  .ai-section .flow-core{min-height:148px;padding:1.55rem 1rem;border-radius:6px}
+  .ai-section .flow-core span{font-size:.58rem}
+  .ai-section .flow-core strong{margin:.65rem 0 .85rem;font-size:1.55rem}
+  .ai-section .flow-core p{font-size:.67rem;line-height:1.7}
+}
+@media(max-width:380px){
+  .ai-section .ai-flow{padding:.8rem}
+  .ai-section .flow-node{padding:.5rem;font-size:.62rem}
+}
