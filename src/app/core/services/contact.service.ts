@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { SITE_CONFIG } from '../config/site.config';
+import { AttributionData } from './marketing-tracking.service';
 
-export interface ContactPayload { name: string; company: string; email: string; phone: string; projectType: string; message: string; website: string; privacy: boolean; }
+export interface ContactPayload extends AttributionData { name: string; company: string; email: string; phone: string; projectType: string; message: string; website: string; privacy: boolean; }
 
 @Injectable({ providedIn: 'root' })
 export class ContactService {

@@ -107,7 +107,7 @@
     <div class="footer-meta">
       @if (config.contactEmail) { <a [href]="'mailto:' + config.contactEmail">{{ config.contactEmail }}</a> }
       @if (config.linkedInUrl) { <a [href]="config.linkedInUrl" target="_blank" rel="noopener noreferrer">LinkedIn</a> }
-      <details class="footer-privacy"><summary>Privacidad</summary><p>Usamos los datos del formulario únicamente para responder tu consulta. No los compartimos con terceros.</p></details>
+      <details class="footer-privacy"><summary>Privacidad</summary><p>Usamos los datos del formulario para responder tu consulta y medir su origen. Con tu aceptación, pueden procesarse mediante herramientas de Google para atribución de conversiones.</p></details>
     </div>
   </div>
   <div class="container footer-bottom"><span>© {{ year }} TrailSoft.</span>@if (!config.contactEmail) { <span class="pending-contact">Correo comercial pendiente de configuración.</span> }<button type="button" (click)="scrollTop()">Volver arriba ↑</button></div>
