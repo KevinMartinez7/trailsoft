@@ -13,13 +13,17 @@ describe('ContactSection', () => {
     fixture.detectChanges();
     const element = fixture.nativeElement as HTMLElement;
     expect(element.querySelector('#name')?.getAttribute('aria-invalid')).toBe('true');
+    expect(element.querySelector('#company')?.getAttribute('aria-invalid')).toBe('true');
+    expect(element.querySelector('#phone')?.getAttribute('aria-invalid')).toBe('true');
+    expect(element.querySelector('#company-error')).toBeTruthy();
+    expect(element.querySelector('#phone-error')).toBeTruthy();
     expect(element.textContent).toContain('Revisá los campos señalados');
   });
 
   it('does not claim success when the endpoint is not configured', async () => {
     await TestBed.configureTestingModule({ imports: [ContactSection], providers: [provideHttpClient()] }).compileComponents();
     const fixture = TestBed.createComponent(ContactSection);
-    fixture.componentInstance.form.patchValue({ name: 'Ana', company: '', email: 'ana@example.com', phone: '', projectType: 'MVP', message: 'Necesitamos validar un producto digital.', website: '', privacy: true });
+    fixture.componentInstance.form.patchValue({ name: 'Ana', company: 'TrailSoft', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP', message: 'Necesitamos validar un producto digital.', website: '', privacy: true });
     fixture.componentInstance.submit(); fixture.detectChanges();
     expect(fixture.componentInstance.status()).toContain('falta configurar');
   });
@@ -46,7 +50,7 @@ describe('ContactSection', () => {
     const fixture = TestBed.createComponent(ContactSection);
     fixture.detectChanges();
     fixture.componentInstance.form.patchValue({
-      name: 'Ana', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP',
+      name: 'Ana', company: 'TrailSoft', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP',
       message: 'Necesitamos validar un producto digital.', privacy: true, ...attribution
     });
     fixture.componentInstance.submit();
