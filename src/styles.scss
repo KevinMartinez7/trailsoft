@@ -141,3 +141,25 @@ main section[id]{scroll-margin-top:calc(var(--header) + 1.5rem)}
   .ai-section .ai-flow{padding:.8rem}
   .ai-section .flow-node{padding:.5rem;font-size:.62rem}
 }
+
+/* Footer navigation action */
+.footer-bottom button,
+.compact-footer button {
+  min-height: 42px;
+  padding: .65rem 1rem;
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  color: #fff;
+  background: var(--blue);
+  font-size: .78rem;
+  font-weight: 650;
+  line-height: 1;
+  transition: transform .2s var(--ease), background .2s, border-color .2s;
+}
+
+.footer-bottom button:hover,
+.compact-footer button:hover {
+  transform: translateY(-2px);
+  border-color: #45a8ff;
+  background: #087bea;
+}

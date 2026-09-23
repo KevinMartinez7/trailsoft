@@ -23,7 +23,7 @@ describe('ContactSection', () => {
   it('does not claim success when the endpoint is not configured', async () => {
     await TestBed.configureTestingModule({ imports: [ContactSection], providers: [provideHttpClient()] }).compileComponents();
     const fixture = TestBed.createComponent(ContactSection);
-    fixture.componentInstance.form.patchValue({ name: 'Ana', company: 'TrailSoft', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP', message: 'Necesitamos validar un producto digital.', website: '', privacy: true });
+    fixture.componentInstance.form.patchValue({ name: 'Ana', company: 'TrailSoft', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP', message: 'Necesitamos validar un producto digital.', website: '' });
     fixture.componentInstance.submit(); fixture.detectChanges();
     expect(fixture.componentInstance.status()).toContain('falta configurar');
   });
@@ -51,7 +51,7 @@ describe('ContactSection', () => {
     fixture.detectChanges();
     fixture.componentInstance.form.patchValue({
       name: 'Ana', company: 'TrailSoft', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP',
-      message: 'Necesitamos validar un producto digital.', privacy: true, ...attribution
+      message: 'Necesitamos validar un producto digital.', ...attribution
     });
     fixture.componentInstance.submit();
 

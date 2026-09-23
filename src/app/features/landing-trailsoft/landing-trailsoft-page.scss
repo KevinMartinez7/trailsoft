@@ -128,10 +128,23 @@
 
 .compact-footer button {
   margin-left: auto;
-  border: 0;
-  color: var(--muted);
-  background: transparent;
+  min-height: 42px;
+  padding: .65rem 1rem;
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  color: #fff;
+  background: var(--blue);
+  font-size: .78rem;
+  font-weight: 650;
+  line-height: 1;
   cursor: pointer;
+  transition: transform .2s var(--ease), background .2s, border-color .2s;
+}
+
+.compact-footer button:hover {
+  transform: translateY(-2px);
+  border-color: #45a8ff;
+  background: #087bea;
 }
 
 @media (max-width: 1000px) {

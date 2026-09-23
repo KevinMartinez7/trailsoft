@@ -31,7 +31,6 @@ import { MarketingTrackingService } from '../../core/services/marketing-tracking
             <input type="hidden" name="utm_term" formControlName="utm_term">
             <input type="hidden" name="utm_content" formControlName="utm_content">
             <input type="hidden" name="gclid" formControlName="gclid">
-            <label class="check field-wide"><input type="checkbox" formControlName="privacy"><span>Acepto que TrailSoft utilice estos datos para responder mi consulta y medir su origen mediante herramientas de Google. <b>*</b></span></label>
           </div>
           <button class="button submit-button" type="submit" [disabled]="sending()">{{ sending() ? 'Enviando…' : 'Enviar consulta' }} <span aria-hidden="true">↗</span></button>
           <p class="form-status" role="status" aria-live="polite">{{ status() }}</p>
@@ -50,7 +49,7 @@ export class ContactSection {
   readonly projectTypes = ['Aplicación web', 'Aplicación móvil', 'Software a medida', 'MVP', 'Integración o API', 'IA y automatización', 'Otro'];
   readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required]], company: ['', [Validators.required]], email: ['', [Validators.required, Validators.email]], phone: ['', [Validators.required]],
-    projectType: ['', [Validators.required]], message: ['', [Validators.required, Validators.minLength(20)]], website: [''], privacy: [false, [Validators.requiredTrue]],
+    projectType: ['', [Validators.required]], message: ['', [Validators.required, Validators.minLength(20)]], website: [''],
     utm_source: [''], utm_medium: [''], utm_campaign: [''], utm_term: [''], utm_content: [''], gclid: ['']
   });
 
