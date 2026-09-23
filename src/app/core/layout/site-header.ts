@@ -1,6 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
-import { afterNextRender, ChangeDetectionStrategy, Component, DestroyRef, ElementRef, HostListener, PLATFORM_ID, Renderer2, signal, viewChild, inject } from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, DestroyRef, ElementRef, HostListener, PLATFORM_ID, Renderer2, input, signal, viewChild, inject } from '@angular/core';
 import { NAV_ITEMS } from '../data/site-content';
+import { NavItem } from '../models/content.models';
 
 @Component({
   selector: 'app-site-header',
@@ -15,10 +16,10 @@ import { NAV_ITEMS } from '../data/site-content';
           <span></span><span></span>
         </button>
         <nav id="main-navigation" class="main-nav" [class.open]="menuOpen()" aria-label="Navegación principal">
-          @for (item of navItems; track item.href) {
+          @for (item of navItems(); track item.href) {
             <a [href]="item.href" [class.active]="activeSection() === item.href.slice(1)" [attr.aria-current]="activeSection() === item.href.slice(1) ? 'location' : null" (click)="closeMenu()">{{ item.label }}</a>
           }
-          <a class="button button-small" href="#contacto" (click)="closeMenu()">Hablemos de tu proyecto</a>
+          <a class="button button-small" [href]="contactHref()" (click)="closeMenu()">Hablemos de tu proyecto</a>
         </nav>
       </div>
     </header>
@@ -26,7 +27,8 @@ import { NAV_ITEMS } from '../data/site-content';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SiteHeader {
-  readonly navItems = NAV_ITEMS;
+  readonly navItems = input<readonly NavItem[]>(NAV_ITEMS);
+  readonly contactHref = input('#contacto');
   readonly menuOpen = signal(false);
   readonly scrolled = signal(false);
   readonly activeSection = signal('inicio');

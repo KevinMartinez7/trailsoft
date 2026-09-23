@@ -1,0 +1,173 @@
+:host {
+  display: block;
+}
+
+.compact-hero {
+  min-height: min(760px, 100svh);
+  display: flex;
+  align-items: center;
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.compact-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: center;
+}
+
+.compact-hero h1 {
+  font-size: clamp(3rem, 5.8vw, 6rem);
+}
+
+.compact-hero-summary {
+  position: relative;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, rgba(11, 28, 42, .92), rgba(5, 12, 20, .72));
+  box-shadow: 0 28px 70px rgba(0, 0, 0, .25);
+}
+
+.compact-hero-summary::before {
+  content: '';
+  position: absolute;
+  inset: -1px auto auto -1px;
+  width: 72px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+}
+
+.compact-hero-summary span {
+  color: var(--teal);
+  font: 600 .64rem/1 var(--body);
+  letter-spacing: .15em;
+}
+
+.compact-hero-summary strong {
+  display: block;
+  margin: 2rem 0 1rem;
+  color: var(--text);
+  font: 550 clamp(1.45rem, 2.6vw, 2.2rem)/1.22 var(--display);
+}
+
+.compact-hero-summary p {
+  margin: 0;
+  font-size: .9rem;
+}
+
+.compact-landing .service-card {
+  min-height: 330px;
+}
+
+.compact-landing .service-card p {
+  min-height: 0;
+}
+
+.mid-cta {
+  position: relative;
+  padding-block: clamp(3rem, 6vw, 5rem);
+  overflow: hidden;
+  border-block: 1px solid var(--border);
+  background: linear-gradient(105deg, rgba(13, 139, 255, .1), rgba(52, 207, 190, .045) 55%, transparent);
+}
+
+.mid-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 8%;
+  width: 26rem;
+  height: 100%;
+  background: radial-gradient(circle, rgba(13, 139, 255, .1), transparent 68%);
+  pointer-events: none;
+}
+
+.mid-cta-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.mid-cta .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.mid-cta h2 {
+  margin-bottom: .75rem;
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+}
+
+.mid-cta p {
+  max-width: 690px;
+  margin: 0;
+}
+
+.mid-cta .button {
+  flex: 0 0 auto;
+  min-width: 205px;
+}
+
+.compact-footer {
+  padding: 1.5rem 0;
+}
+
+.compact-footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: var(--faint);
+  font-size: .68rem;
+}
+
+.compact-footer .footer-brand {
+  width: 190px;
+}
+
+.compact-footer button {
+  margin-left: auto;
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .compact-hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-hero-summary {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 720px) {
+  .compact-hero {
+    min-height: auto;
+  }
+
+  .compact-footer-inner {
+    flex-wrap: wrap;
+  }
+
+  .mid-cta-inner {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .mid-cta .button {
+    width: 100%;
+  }
+
+  .compact-footer .footer-brand {
+    width: 100%;
+  }
+
+  .compact-footer button {
+    margin-left: auto;
+  }
+}

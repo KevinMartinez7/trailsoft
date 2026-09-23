@@ -103,3 +103,19 @@ main section[id]{scroll-margin-top:calc(var(--header) + 1.5rem)}
 @keyframes value-module-in{to{opacity:1;transform:none}}@keyframes value-row-glow{0%,12%{opacity:0;transform:scaleX(.75)}22%,44%{opacity:1;transform:scaleX(1)}58%,100%{opacity:0;transform:scaleX(1)}}@keyframes value-node-pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,207,190,0)}35%{box-shadow:0 0 0 6px rgba(52,207,190,.08),0 0 16px rgba(52,207,190,.3)}}
 @media(max-width:720px){.value-module{margin-top:1.5rem}.value-module-list{padding:1rem}.value-module-list>div{min-height:52px}.value-module-list::before{top:1.8rem;bottom:1.8rem}.value-principles article{border-top:0}.value-principles article+article{border-left:0}}
 @media(prefers-reduced-motion:reduce){.value-section.reveal-ready .value-module{opacity:1;transform:none}.value-section.is-visible .value-module{animation:none}.value-module-list>div::after,.value-module-list i{animation:none!important}.value-module-list>div::after{opacity:0}}
+
+/* Compact industries grid on mobile */
+@media(max-width:720px){
+  .industries-section .industries-layout{display:block}
+  .industries-section .industry-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:.45rem;margin-top:2rem}
+  .industries-section .industry-list li,
+  .industries-section .industry-list li:nth-child(4n+1),
+  .industries-section .industry-list li:nth-child(4n+2){grid-template-columns:1fr;grid-template-rows:auto 1fr auto;min-height:98px;padding:.65rem;border-radius:8px}
+  .industries-section .industry-list li>span{font-size:.52rem}
+  .industries-section .industry-list li>strong{grid-column:1;font-size:clamp(.66rem,2.8vw,.78rem);line-height:1.25;letter-spacing:-.015em}
+  .industries-section .industry-list li>i,
+  .industries-section .industry-list li::before{display:none}
+  .industries-section .industry-list li::after{width:1.5rem}
+  .industries-section .industry-list li:last-child{grid-column:auto;min-height:98px}
+}
+@media(min-width:421px) and (max-width:720px){.industries-section .industry-list{grid-template-columns:repeat(4,minmax(0,1fr))}}
