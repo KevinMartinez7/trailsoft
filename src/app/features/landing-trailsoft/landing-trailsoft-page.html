@@ -6,18 +6,18 @@
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="container compact-hero-layout">
       <div class="hero-copy reveal">
-        <p class="brand-label">TRAILSOFT <span>Ideas que se convierten en soluciones.</span></p>
-        <h1 id="compact-hero-title">Software a medida.<br><em>Claro, escalable y listo para crecer.</em></h1>
-        <p class="hero-lead">Diseñamos y desarrollamos productos digitales, sistemas e integraciones que resuelven necesidades reales de tu negocio.</p>
+        <p class="availability-label"><i aria-hidden="true"></i><span>Estamos tomando nuevos proyectos · Te respondemos en menos de 24hs.</span></p>
+        <h1 id="compact-hero-title">Una solución digital.<br><em>Clara, útil y lista para crecer.</em></h1>
+        <p class="hero-lead">¿Hay algo en tu negocio que podría funcionar mejor? Te ayudamos a transformarlo en una solución simple, cercana y preparada para acompañar tu crecimiento.</p>
         <div class="hero-actions">
           <a class="button" href="/landing-trailsoft#contacto">Hablemos de tu proyecto <span aria-hidden="true">↗</span></a>
           <a class="text-link" href="#servicios">Ver servicios <span aria-hidden="true">↓</span></a>
         </div>
       </div>
       <aside class="compact-hero-summary" aria-label="Propuesta de TrailSoft">
-        <span>DE LA IDEA A PRODUCCIÓN</span>
-        <strong>Estrategia · Diseño · Desarrollo</strong>
-        <p>Un equipo para convertir necesidades complejas en soluciones digitales concretas.</p>
+        <span>DE TU DESAFÍO A UNA SOLUCIÓN</span>
+        <strong>Escuchamos · Ordenamos · Construimos</strong>
+        <p>Un equipo que te acompaña para convertir una necesidad concreta en un resultado que puedas usar.</p>
       </aside>
     </div>
   </section>
@@ -25,12 +25,12 @@
   <section id="servicios" class="section services-section" aria-labelledby="compact-services-title" appReveal>
     <div class="container">
       <div class="section-heading">
-        <div><span class="eyebrow">Servicios</span><h2 id="compact-services-title">Lo que construimos</h2></div>
-        <p>Soluciones digitales adaptadas a los procesos, objetivos y desafíos de cada organización.</p>
+        <div><span class="eyebrow">Cómo podemos ayudarte</span><h2 id="compact-services-title">Soluciones para que tu negocio avance.</h2></div>
+        <p>Elegí el desafío que querés resolver y encontremos juntos una forma más simple de trabajar, vender o crecer.</p>
       </div>
       <div class="services-grid">
         @for (service of services; track service.number) {
-          <article class="service-card" [class.priority-axis]="['03', '04', '05', '06'].includes(service.number)" appReveal>
+          <article class="service-card" appReveal>
             <div class="card-top"><span>{{ service.number }}</span><i aria-hidden="true"></i></div>
             <div class="service-icon"><app-service-icon [kind]="service.number" /></div>
             <h3>{{ service.title }}</h3>
@@ -45,14 +45,14 @@
     <div class="container industries-layout">
       <div class="industries-copy">
         <span class="eyebrow">Industrias</span>
-        <h2 id="compact-industries-title">Soluciones que se adaptan a cada contexto.</h2>
-        <p>Construimos productos y sistemas alineados con la realidad operativa de cada industria.</p>
+        <h2 id="compact-industries-title">Entendemos que cada negocio es distinto.</h2>
+        <p>Conocemos tu realidad, tus clientes y tus prioridades para crear algo que realmente encaje.</p>
       </div>
-      <ul class="industry-list">
+      <div class="industry-results"><ul class="industry-list">
         @for (industry of industries; track industry; let i = $index) {
           <li><span>{{ (i + 1).toString().padStart(2, '0') }}</span><strong>{{ industry }}</strong><i aria-hidden="true">↗</i></li>
         }
-      </ul>
+      </ul><p class="industry-note">¿No está tu rubro? Igual contactanos, seguro podemos ayudarte.</p></div>
     </div>
   </section>
 
@@ -60,10 +60,10 @@
     <div class="container mid-cta-inner">
       <div>
         <span class="eyebrow">Conversemos</span>
-        <h2 id="mid-cta-title">¿Tenés un proyecto en mente?</h2>
-        <p>Contanos el desafío y evaluemos juntos el mejor camino para convertirlo en una solución.</p>
+        <h2 id="mid-cta-title">¿Hay algo que querés mejorar?</h2>
+        <p>Contanos qué está pasando en tu negocio y te ayudamos a identificar el próximo paso.</p>
       </div>
-      <a class="button" href="/landing-trailsoft#contacto">Contanos tu idea <span aria-hidden="true">↓</span></a>
+      <a class="button" href="/landing-trailsoft#contacto">Quiero conversar <span aria-hidden="true">↓</span></a>
     </div>
   </section>
 
@@ -74,8 +74,9 @@
 
 <footer class="site-footer compact-footer">
   <div class="container compact-footer-inner">
-    <a class="brand footer-brand" href="#inicio">
-      <img src="brand/trailsoft-logo-dark.png" width="1774" height="887" alt="TrailSoft — Ideas que se convierten en soluciones">
+    <a class="brand brand-lockup footer-brand" href="#inicio" aria-label="TrailSoft, ir al inicio">
+      <img class="brand-symbol" src="brand/trailsoft-symbol-dark.svg" width="413" height="310" alt="">
+      <img class="brand-wordmark-image" src="brand/trailsoft-wordmark.svg" width="670" height="130" alt="">
     </a>
     <span>© {{ year }} TrailSoft.</span>
     <button type="button" (click)="scrollTop()">Volver arriba ↑</button>

@@ -12,7 +12,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./features/home/home-page').then((m) => m.HomePage),
-    title: 'TrailSoft | Desarrollo de software a medida'
+    title: 'TrailSoft | Soluciones digitales para hacer crecer tu negocio'
   },
   { path: '**', redirectTo: '' }
 ];

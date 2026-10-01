@@ -5,14 +5,14 @@ describe('TrailAnimation', () => {
   beforeEach(() => jasmine.clock().install());
   afterEach(() => jasmine.clock().uninstall());
 
-  it('renders a complete static production state for SSR and hydration', async () => {
+  it('renders a complete static state for SSR and hydration', async () => {
     await TestBed.configureTestingModule({ imports: [TrailAnimation] }).compileComponents();
     const fixture = TestBed.createComponent(TrailAnimation); fixture.detectChanges();
     const element = fixture.nativeElement as HTMLElement;
     expect(fixture.componentInstance.currentStage().id).toBe('production');
     expect(element.textContent).toContain('Idea');
-    expect(element.textContent).toContain('Producción');
-    expect(element.textContent).toContain('SISTEMA ONLINE');
+    expect(element.textContent).toContain('Listo para crecer');
+    expect(element.textContent).toContain('SOLUCIÓN ONLINE');
   });
 
   it('advances through the configured stages without creating a duplicate cycle', async () => {
@@ -35,7 +35,7 @@ describe('TrailAnimation', () => {
     expect(component.isRunning()).toBeFalse();
   });
 
-  it('keeps the complete production state when reduced motion is enabled', async () => {
+  it('keeps the complete state when reduced motion is enabled', async () => {
     await TestBed.configureTestingModule({ imports: [TrailAnimation] }).compileComponents();
     const fixture = TestBed.createComponent(TrailAnimation);
     const component = fixture.componentInstance;

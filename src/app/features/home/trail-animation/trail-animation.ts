@@ -23,11 +23,11 @@ export interface TrailStage {
 
 export const TRAIL_STAGES: readonly TrailStage[] = [
   { id: 'idea', number: '01', label: 'Idea', duration: 1000, progress: 3 },
-  { id: 'architecture', number: '02', label: 'Arquitectura', duration: 1500, progress: 22 },
-  { id: 'development', number: '03', label: 'Desarrollo', duration: 2000, progress: 43 },
-  { id: 'integration', number: '04', label: 'Integración', duration: 1500, progress: 63 },
-  { id: 'quality', number: '05', label: 'Calidad', duration: 1500, progress: 82 },
-  { id: 'production', number: '06', label: 'Producción', duration: 2500, progress: 100 }
+  { id: 'architecture', number: '02', label: 'Camino', duration: 1500, progress: 22 },
+  { id: 'development', number: '03', label: 'Construcción', duration: 2000, progress: 43 },
+  { id: 'integration', number: '04', label: 'Conexiones', duration: 1500, progress: 63 },
+  { id: 'quality', number: '05', label: 'Validación', duration: 1500, progress: 82 },
+  { id: 'production', number: '06', label: 'Listo para crecer', duration: 2500, progress: 100 }
 ] as const;
 
 @Component({

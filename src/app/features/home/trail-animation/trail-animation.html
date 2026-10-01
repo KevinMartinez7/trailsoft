@@ -6,8 +6,8 @@
   [style.--trail-dashoffset]="100 - progress()"
   aria-labelledby="trail-animation-title"
 >
-  <h2 id="trail-animation-title" class="sr-only">Del código a producción</h2>
-  <p class="sr-only">Proceso de TrailSoft: una idea pasa por arquitectura, desarrollo, integración y control de calidad hasta llegar a producción.</p>
+  <h2 id="trail-animation-title" class="sr-only">De tu idea a una solución que funciona</h2>
+  <p class="sr-only">Proceso de TrailSoft: escuchamos tu idea, ordenamos el camino, construimos, validamos y dejamos una solución lista para acompañar tu crecimiento.</p>
 
   <header class="trail-header" aria-hidden="true">
     <span><i></i> TRAIL SYSTEM</span>
@@ -48,40 +48,40 @@
     </ol>
 
     <article class="system-module architecture-module" [class.visible]="isReached(1)">
-      <header><span>01 / ESTRUCTURA</span><i></i></header>
+      <header><span>01 / TU CAMINO</span><i></i></header>
       <div class="wireframe">
         <b></b><b></b><b></b><span></span><span></span><span></span>
       </div>
-      <footer>architecture mapped</footer>
+      <footer>camino definido</footer>
     </article>
 
     <article class="system-module development-module" [class.visible]="isReached(2)">
-      <header><span>02 / COMPONENT</span><i></i><i></i></header>
+      <header><span>02 / LO HACEMOS REAL</span><i></i><i></i></header>
       <div class="code-lines">
-        <span><em>const</em> product = signal();</span>
-        <span>api.<b>connect</b>(endpoint);</span>
-        <span>data.<b>map</b>(schema);</span>
-        <span>return product.ready;</span>
+        <span><em>idea</em> = escuchada();</span>
+        <span>camino.<b>ordenar</b>(objetivos);</span>
+        <span>solución.<b>validar</b>(clientes);</span>
+        <span>return resultado.listo;</span>
       </div>
-      <footer><i></i> component initialized</footer>
+      <footer><i></i> avance en marcha</footer>
     </article>
 
     <article class="system-module product-module" [class.visible]="isReached(4)">
-      <header><span>03 / PRODUCT</span><b [class.checked]="isReached(4)">✓</b></header>
+      <header><span>03 / TU SOLUCIÓN</span><b [class.checked]="isReached(4)">✓</b></header>
       <div class="product-ui">
         <aside><i></i><i></i><i></i></aside>
         <main><span></span><div><b></b><b></b></div><span></span></main>
       </div>
       <div class="quality-scan" [class.active]="isCurrent(4)"></div>
-      <footer><i></i> system healthy</footer>
+      <footer><i></i> listo para crecer</footer>
     </article>
 
-    <div class="integration-status" [class.visible]="isCurrent(3)"><i></i> API CONNECTED</div>
-    <div class="quality-status" [class.visible]="isCurrent(4)">✓ TESTS PASSED</div>
-    <div class="deploy-status" [class.visible]="isReached(5)"><i></i><span>DEPLOYED<strong>SISTEMA ONLINE</strong></span></div>
+    <div class="integration-status" [class.visible]="isCurrent(3)"><i></i> TODO CONECTADO</div>
+    <div class="quality-status" [class.visible]="isCurrent(4)">✓ TODO LISTO</div>
+    <div class="deploy-status" [class.visible]="isReached(5)"><i></i><span>EN MARCHA<strong>SOLUCIÓN ONLINE</strong></span></div>
   </div>
 
   <footer class="trail-footer" aria-hidden="true">
-    <span>DEL CÓDIGO</span><i></i><span>A PRODUCCIÓN</span>
+    <span>DE LA IDEA</span><i></i><span>A TU RESULTADO</span>
   </footer>
 </section>

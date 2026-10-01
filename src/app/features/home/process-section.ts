@@ -8,10 +8,10 @@ import { PROCESS_STEPS } from '../../core/data/site-content';
     <section id="proceso" class="section process-section" aria-labelledby="process-title">
       <div class="container process-layout">
         <div class="process-intro">
-          <span class="eyebrow">Cómo construimos</span>
-          <h2 id="process-title">De la idea a producción.</h2>
-          <p>Un proceso claro para reducir incertidumbre, validar decisiones y construir productos preparados para crecer.</p>
-          <div class="process-key"><span></span> Avance verificable en cada etapa</div>
+          <span class="eyebrow">Cómo trabajamos</span>
+          <h2 id="process-title">Un camino claro para hacer realidad tu idea.</h2>
+          <p>Te guiamos desde la primera conversación hasta el lanzamiento, con decisiones claras y avances que podés ver.</p>
+          <div class="process-key"><span></span> Siempre sabés cuál es el próximo paso</div>
         </div>
         <ol class="process-list">
           @for (step of steps; track step.number) {
