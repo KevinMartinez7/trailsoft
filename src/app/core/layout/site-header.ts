@@ -9,8 +9,9 @@ import { NavItem } from '../models/content.models';
   template: `
     <header class="site-header" [class.scrolled]="scrolled()">
       <div class="container header-inner">
-        <a class="brand" href="#inicio" aria-label="TrailSoft, ir al inicio">
-          <img src="brand/trailsoft-logo-dark.png" width="1774" height="887" fetchpriority="high" alt="TrailSoft — Ideas que se convierten en soluciones">
+        <a class="brand brand-lockup" href="#inicio" aria-label="TrailSoft, ir al inicio">
+          <img class="brand-symbol" src="brand/trailsoft-symbol-dark.svg" width="413" height="310" fetchpriority="high" alt="">
+          <img class="brand-wordmark-image" src="brand/trailsoft-wordmark.svg" width="670" height="130" alt="">
         </a>
         <button #menuButton class="menu-button" type="button" [attr.aria-expanded]="menuOpen()" aria-controls="main-navigation" [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'" (click)="toggleMenu()">
           <span></span><span></span>
