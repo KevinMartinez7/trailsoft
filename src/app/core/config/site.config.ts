@@ -1,12 +1,11 @@
 /**
- * Production values are intentionally empty until TrailSoft confirms them.
- * Deployment configuration mapping: CONTACT_ENDPOINT, CONTACT_RECIPIENT,
- * WHATSAPP_NUMBER and LINKEDIN_URL.
+ * The browser only needs the public endpoint. Resend credentials stay in the
+ * Node server environment and are never bundled into the Angular application.
  */
 export const SITE_CONFIG = {
   canonicalUrl: '',
-  contactEndpoint: '',
-  contactEmail: '',
+  contactEndpoint: '/api/contact',
+  contactEmail: 'trailsoftoficial@gmail.com',
   whatsappNumber: '5491137877561',
   whatsappMessage: 'Hola, quiero conversar sobre un proyecto de software con TrailSoft.',
   linkedInUrl: ''

@@ -1,6 +1,6 @@
 import { provideHttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 import { ContactService } from '../../core/services/contact.service';
 import { AttributionData, MarketingTrackingService } from '../../core/services/marketing-tracking.service';
 import { ContactSection } from './contact-section';
@@ -20,12 +20,13 @@ describe('ContactSection', () => {
     expect(element.textContent).toContain('Revisá los campos señalados');
   });
 
-  it('does not claim success when the endpoint is not configured', async () => {
-    await TestBed.configureTestingModule({ imports: [ContactSection], providers: [provideHttpClient()] }).compileComponents();
+  it('shows an error when the mail server rejects the request', async () => {
+    const contactService = { send: jasmine.createSpy().and.returnValue(throwError(() => new Error('MAIL_NOT_CONFIGURED'))) };
+    await TestBed.configureTestingModule({ imports: [ContactSection], providers: [provideHttpClient(), { provide: ContactService, useValue: contactService }] }).compileComponents();
     const fixture = TestBed.createComponent(ContactSection);
     fixture.componentInstance.form.patchValue({ name: 'Ana', company: 'TrailSoft', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP', message: 'Necesitamos validar un producto digital.', website: '' });
     fixture.componentInstance.submit(); fixture.detectChanges();
-    expect(fixture.componentInstance.status()).toContain('falta configurar');
+    expect(fixture.componentInstance.status()).toContain('No pudimos enviar');
   });
 
   it('tracks a lead only after the form is sent successfully', async () => {

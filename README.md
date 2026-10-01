@@ -34,6 +34,17 @@ El logo y el isotipo utilizados fueron extraídos directamente del manual oficia
 
 `ContactService` envía un `POST` JSON al endpoint configurado. El backend debe validar el payload, aplicar rate limiting y protección antispam, y responder con un código 2xx. Sin endpoint, la interfaz muestra un aviso real; nunca simula un envío exitoso.
 
+## Envío de consultas con Resend
+
+El formulario usa el endpoint server-side `/api/contact`. La clave de Resend nunca se envía al navegador ni se incluye en el bundle Angular.
+
+1. Copiar `.env.example` como `.env` en el servidor.
+2. Completar `RESEND_API_KEY`, `CONTACT_TO_EMAIL` y `CONTACT_FROM_EMAIL`.
+3. Usar como `CONTACT_FROM_EMAIL` un remitente verificado en Resend.
+4. Ejecutar el servidor SSR con `npm run serve:ssr:trailsoft-landing`.
+
+El endpoint valida los campos obligatorios, limita el tamaño del payload, aplica rate limiting, filtra el honeypot y genera una versión HTML y otra de texto del correo. Los UTM y el GCLID se incluyen en una sección de atribución.
+
 ## Despliegue
 
 - Estático/prerender: publicar `dist/trailsoft-landing/browser`.

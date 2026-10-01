@@ -1,12 +1,18 @@
 import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { ContactService } from './contact.service';
 
 describe('ContactService', () => {
-  it('fails explicitly when no endpoint is configured', (done) => {
-    TestBed.configureTestingModule({ providers: [provideHttpClient()] });
-    TestBed.inject(ContactService).send({ name: 'A', company: '', email: 'a@b.com', phone: '', projectType: 'MVP', message: 'Descripción suficientemente extensa', website: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '', gclid: '' }).subscribe({
-      error: (error: Error) => { expect(error.message).toBe('CONTACT_ENDPOINT_NOT_CONFIGURED'); done(); }
-    });
+  it('posts the contact payload to the server endpoint', () => {
+    TestBed.configureTestingModule({ providers: [provideHttpClient(), provideHttpClientTesting()] });
+    const http = TestBed.inject(HttpTestingController);
+    const payload = { name: 'A', company: 'TrailSoft', email: 'a@b.com', phone: '+5491112345678', projectType: 'MVP', message: 'Descripción suficientemente extensa', website: '', utm_source: '', utm_medium: '', utm_campaign: '', utm_term: '', utm_content: '', gclid: '' };
+    TestBed.inject(ContactService).send(payload).subscribe();
+    const request = http.expectOne('/api/contact');
+    expect(request.request.method).toBe('POST');
+    expect(request.request.body).toEqual(payload);
+    request.flush({ ok: true });
+    http.verify();
   });
 });

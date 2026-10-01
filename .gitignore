@@ -41,6 +41,11 @@ __screenshots__/
 /animacion.md
 /PROMPT MAESTRO*.md
 
+# Environment secrets
+.env
+.env.*
+!.env.example
+
 # System files
 .DS_Store
 Thumbs.db
