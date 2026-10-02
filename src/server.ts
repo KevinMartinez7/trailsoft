@@ -159,9 +159,9 @@ app.post('/api/contact', async (req, res) => {
   }
 
   const apiKey = process.env['RESEND_API_KEY']?.trim();
-  const recipient = process.env['CONTACT_TO_EMAIL']?.trim();
-  const sender = process.env['CONTACT_FROM_EMAIL']?.trim();
-  if (!apiKey || !recipient || !sender) {
+  const recipient = process.env['CONTACT_TO_EMAIL']?.trim() || 'trailsoftoficial@gmail.com';
+  const sender = process.env['CONTACT_FROM_EMAIL']?.trim() || 'TrailSoft <onboarding@resend.dev>';
+  if (!apiKey) {
     res.status(503).json({ error: 'MAIL_NOT_CONFIGURED' });
     return;
   }

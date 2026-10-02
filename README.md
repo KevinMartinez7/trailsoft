@@ -39,8 +39,9 @@ El logo y el isotipo utilizados fueron extraídos directamente del manual oficia
 El formulario usa el endpoint server-side `/api/contact`. La clave de Resend nunca se envía al navegador ni se incluye en el bundle Angular.
 
 1. Copiar `.env.example` como `.env` en el servidor.
-2. Completar `RESEND_API_KEY`, `CONTACT_TO_EMAIL` y `CONTACT_FROM_EMAIL`.
-3. Usar como `CONTACT_FROM_EMAIL` un remitente verificado en Resend.
+2. Completar `RESEND_API_KEY`. El formulario envía por defecto a `trailsoftoficial@gmail.com`.
+3. Opcionalmente, definir `CONTACT_TO_EMAIL` o `CONTACT_FROM_EMAIL` para sobrescribir el destinatario o el remitente.
+4. Para producción, usar como `CONTACT_FROM_EMAIL` un remitente verificado en Resend.
 4. Ejecutar el servidor SSR con `npm run serve:ssr:trailsoft-landing`.
 
 El endpoint valida los campos obligatorios, limita el tamaño del payload, aplica rate limiting, filtra el honeypot y genera una versión HTML y otra de texto del correo. Los UTM y el GCLID se incluyen en una sección de atribución.
