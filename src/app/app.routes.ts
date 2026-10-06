@@ -2,6 +2,11 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'version-anterior',
+    loadComponent: () => import('./features/legacy/legacy-page').then((m) => m.LegacyPage),
+    title: 'TrailSoft | Versión anterior'
+  },
+  {
     path: 'landing-trailsoft',
     loadComponent: () =>
       import('./features/landing-trailsoft/landing-trailsoft-page').then(

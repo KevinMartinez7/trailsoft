@@ -1,0 +1,62 @@
+:host {
+  display: block;
+}
+
+.legacy-notice {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  min-height: 2.5rem;
+  padding: .55rem 1rem;
+  border-bottom: 1px solid rgba(45, 214, 204, .2);
+  background: #07141f;
+  color: #b7c7d4;
+  font-size: .75rem;
+  letter-spacing: .02em;
+}
+
+.legacy-notice span {
+  color: #2dd6cc;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.legacy-notice strong {
+  color: #f1f5f9;
+}
+
+.legacy-notice small {
+  color: #708396;
+}
+
+.legacy-notice a {
+  margin-left: .5rem;
+  color: #35a8ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.legacy-notice a:hover,
+.legacy-notice a:focus-visible {
+  color: #71d9ff;
+  text-decoration: underline;
+}
+
+@media (max-width: 680px) {
+  .legacy-notice {
+    flex-wrap: wrap;
+    gap: .25rem .55rem;
+    padding-block: .65rem;
+    text-align: center;
+  }
+
+  .legacy-notice a {
+    width: 100%;
+    margin-left: 0;
+  }
+}
