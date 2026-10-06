@@ -118,6 +118,34 @@ function buildContactText(data: ContactFormData): string {
   ].join('\n');
 }
 
+async function appendToGoogleSheets(data: ContactFormData): Promise<void> {
+  const webhookUrl = process.env['GOOGLE_SHEETS_WEBHOOK_URL']?.trim();
+  if (!webhookUrl) return;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  try {
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        submitted_at: new Date().toISOString(),
+        source: 'trailsoft-web',
+        ...data
+      }),
+      signal: controller.signal
+    });
+
+    if (!response.ok) {
+      console.warn('Google Sheets webhook rejected contact:', response.status);
+    }
+  } catch (error) {
+    console.warn('Google Sheets webhook failed:', error instanceof Error ? error.message : 'unknown error');
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const current = contactAttempts.get(ip);
@@ -183,6 +211,7 @@ app.post('/api/contact', async (req, res) => {
       return;
     }
 
+    await appendToGoogleSheets(data);
     res.status(200).json({ ok: true });
   } catch (error) {
     console.error('Contact email request failed:', error instanceof Error ? error.message : 'unknown error');
