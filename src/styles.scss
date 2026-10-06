@@ -209,6 +209,13 @@ main section[id] { scroll-margin-top: calc(var(--header) + 2rem); }
 .service-card .service-icon { position: absolute; top: clamp(1.5rem, 3vw, 2.5rem); right: clamp(1.5rem, 3vw, 2.5rem); width: 32px; height: 32px; margin: 0; border-radius: 6px; }
 .service-card .service-icon svg { width: 22px; height: 22px; }
 
+/* Todas las tarjetas deben responder igual al hover, incluso después de la animación de entrada. */
+.services-grid .service-card:hover,
+.services-grid .service-card:focus-within {
+  background: var(--surface-hi);
+  transform: translateY(-3px);
+}
+
 .process-list li:hover { transform: none; }
 
 .industry-results { min-width: 0; }
