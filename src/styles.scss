@@ -227,6 +227,9 @@ main section[id] { scroll-margin-top: calc(var(--header) + 3rem); }
 .footer-brand-block .footer-brand { margin-inline: auto; }
 .footer-brand-block .footer-claim { text-align: center; }
 
+.site-header.menu-open { -webkit-backdrop-filter: none; backdrop-filter: none; }
+@media (max-width: 1000px) { .main-nav { height: 100vh; height: 100dvh; } }
+
 .industry-list li:last-child { grid-column: auto; }
 .industry-list li>strong { grid-row: 2; }
 @media (min-width: 721px) {

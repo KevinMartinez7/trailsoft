@@ -7,7 +7,7 @@ import { NavItem } from '../models/content.models';
   selector: 'app-site-header',
   standalone: true,
   template: `
-    <header class="site-header" [class.scrolled]="scrolled()">
+    <header class="site-header" [class.scrolled]="scrolled()" [class.menu-open]="menuOpen()">
       <div class="container header-inner">
         <a class="brand brand-lockup" href="#inicio" aria-label="TrailSoft, ir al inicio">
           <img class="brand-logo-image" src="brand/trailsoft-logo.svg" width="6234" height="1145" fetchpriority="high" alt="">
