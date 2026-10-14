@@ -40,12 +40,20 @@ export class SiteHeader {
 
   constructor() {
     afterNextRender(() => {
+      const syncScrollState = () => this.scrolled.set(window.scrollY > 24);
+      syncScrollState();
+      requestAnimationFrame(syncScrollState);
+      window.addEventListener('pageshow', syncScrollState);
+
       const observer = new IntersectionObserver((entries) => {
         const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (visible?.target.id) this.activeSection.set(visible.target.id);
       }, { rootMargin: '-25% 0px -60%', threshold: [0, .2, .5] });
       document.querySelectorAll<HTMLElement>('main section[id]').forEach((section) => observer.observe(section));
-      this.destroyRef.onDestroy(() => observer.disconnect());
+      this.destroyRef.onDestroy(() => {
+        observer.disconnect();
+        window.removeEventListener('pageshow', syncScrollState);
+      });
     });
   }
 
