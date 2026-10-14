@@ -17,10 +17,11 @@ import { NavItem } from '../models/content.models';
         </button>
         <nav id="main-navigation" class="main-nav" [class.open]="menuOpen()" aria-label="Navegación principal">
           @for (item of navItems(); track item.href) {
-            <a [href]="item.href" [class.active]="activeSection() === item.href.slice(1)" [attr.aria-current]="activeSection() === item.href.slice(1) ? 'location' : null" (click)="closeMenu()">{{ item.label }}</a>
+            <a [href]="item.href" [class.active]="activeSection() === item.href.slice(1)" [attr.aria-current]="activeSection() === item.href.slice(1) ? 'location' : null" (click)="navigateTo($event, item.href); closeMenu()">{{ item.label }}</a>
           }
-          <a class="button button-small" [href]="contactHref()" (click)="closeMenu()">Hablemos de tu proyecto</a>
+          <a class="button button-small mobile-header-cta" [href]="contactHref()" (click)="navigateTo($event, contactHref()); closeMenu()">Hablemos de tu proyecto</a>
         </nav>
+        <a class="button button-small desktop-header-cta" [href]="contactHref()" (click)="navigateTo($event, contactHref())">Hablemos de tu proyecto</a>
       </div>
     </header>
   `,
@@ -57,6 +58,19 @@ export class SiteHeader {
     const first = items[0]; const last = items.at(-1);
     if (keyboardEvent.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
     else if (!keyboardEvent.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+  }
+
+  navigateTo(event: MouseEvent, href: string): void {
+    if (!isPlatformBrowser(this.platformId) || !href.startsWith('#')) return;
+    const section = document.querySelector<HTMLElement>(href);
+    if (!section) return;
+
+    event.preventDefault();
+    const header = document.querySelector<HTMLElement>('.site-header');
+    const headerHeight = header?.getBoundingClientRect().height ?? 0;
+    const top = Math.max(0, section.getBoundingClientRect().top + window.scrollY - headerHeight);
+    window.scrollTo({ top, behavior: 'smooth' });
+    history.replaceState(null, '', href);
   }
 
   toggleMenu(): void {
