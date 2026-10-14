@@ -259,14 +259,39 @@ main section[id] { scroll-margin-top: calc(var(--header) + 3rem); }
 }
 
 @media (max-width: 720px) {
+  .main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: calc(var(--header) + 1rem) 1.25rem 1.25rem;
+    overflow-y: auto;
+    background: rgba(5, 8, 13, .995);
+  }
+  .main-nav > a:not(.button) {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: .8rem .75rem;
+    border-bottom: 1px solid var(--border);
+    font: 600 .95rem/1.35 var(--body);
+    text-align: left;
+  }
+  .main-nav .mobile-header-cta {
+    width: 100%;
+    min-height: 58px;
+    margin-top: auto;
+    border-radius: 12px;
+  }
   .hero > .hero-layout { width: calc(100vw - 2rem) !important; max-width: calc(100vw - 2rem) !important; }
   .availability-label { max-width: 100%; margin-bottom: 1.4rem; font-size: .58rem; line-height: 1.35; }
   .hero-layout > * { min-width: 0; }
-  .hero-copy { width: 100% !important; max-width: 100% !important; min-width: 0; padding-right: 1rem; }
-  .hero h1 { width: 100%; max-width: 100%; font-size: clamp(2.1rem, 9vw, 3rem); overflow-wrap: anywhere; }
-  .hero-lead { width: 100% !important; max-width: 100% !important; overflow-wrap: anywhere; }
-  .hero-actions { width: 100% !important; max-width: 100% !important; padding-right: 1rem; }
-  .hero-actions .button, .hero-actions .text-link { max-width: 100%; }
+  .hero-copy { width: 100% !important; max-width: 100% !important; min-width: 0; padding-right: 0; }
+  .hero h1 { width: 100%; max-width: 100%; font-size: clamp(2.1rem, 9vw, 3rem); overflow-wrap: anywhere; text-align: center; }
+  .hero-lead { width: 100% !important; max-width: 100% !important; overflow-wrap: anywhere; text-align: center; }
+  .hero-actions { width: 100% !important; max-width: 100% !important; padding-right: 0; align-items: stretch; }
+  .hero-actions .button, .hero-actions .text-link { width: 100%; max-width: 100%; min-width: 0; }
   .hero-layout > app-trail-animation { width: 100%; max-width: 100%; }
   .trail-animation, .trail-canvas { width: 100%; max-width: 100%; min-width: 0; }
   .value-module { margin-top: 2.5rem; }
