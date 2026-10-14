@@ -275,6 +275,13 @@ main section[id] { scroll-margin-top: calc(var(--header) + 2rem); }
   overflow: visible;
   letter-spacing: 0;
 }
+.brand-lockup .brand-logo-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
 .brand-lockup .brand-symbol {
   display: block;
   flex: 0 0 auto;

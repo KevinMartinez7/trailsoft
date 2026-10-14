@@ -10,8 +10,7 @@ import { NavItem } from '../models/content.models';
     <header class="site-header" [class.scrolled]="scrolled()">
       <div class="container header-inner">
         <a class="brand brand-lockup" href="#inicio" aria-label="TrailSoft, ir al inicio">
-          <img class="brand-symbol" src="brand/trailsoft-symbol-dark.svg" width="413" height="310" fetchpriority="high" alt="">
-          <img class="brand-wordmark-image" src="brand/trailsoft-wordmark.svg" width="670" height="130" alt="">
+          <img class="brand-logo-image" src="brand/trailsoft-logo.svg" width="6234" height="1145" fetchpriority="high" alt="">
         </a>
         <button #menuButton class="menu-button" type="button" [attr.aria-expanded]="menuOpen()" aria-controls="main-navigation" [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'" (click)="toggleMenu()">
           <span></span><span></span>
