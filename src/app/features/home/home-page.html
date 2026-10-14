@@ -57,8 +57,8 @@
 
   <section id="industrias" class="section industries-section" aria-labelledby="industries-title" appReveal>
     <div class="container industries-layout">
-      <div class="industries-copy"><span class="eyebrow">Industrias</span><h2 id="industries-title">Soluciones que se adaptan a cada industria</h2><p>Nos involucramos en tu rubro para diseñar una solución que encaje con tu equipo, tus clientes y tus objetivos.</p><div class="industry-lens" aria-label="Cómo nos adaptamos"><span><b>02</b> Priorizamos lo importante</span><span><b>03</b> Medimos el avance</span></div></div>
-      <div class="industry-results"><ul class="industry-list">@for (industry of industries; track industry; let i = $index) { <li><span>{{ (i + 1).toString().padStart(2, '0') }}</span><strong>{{ industry }}</strong><i aria-hidden="true">↗</i></li> }</ul><p class="industry-note">¿No está tu rubro? Igual contactanos, seguro podemos ayudarte.</p></div>
+      <div class="industries-copy"><span class="eyebrow">Industrias</span><h2 id="industries-title">Soluciones que se adaptan a cada industria</h2><p>Nos involucramos en tu rubro para diseñar una solución que encaje con tu equipo, tus clientes y tus objetivos.</p></div>
+      <div class="industry-results"><ul class="industry-list">@for (industry of industries; track industry) { <li><strong>{{ industry }}</strong></li> }</ul><p class="industry-note">¿No está tu rubro? Igual contactanos, seguro podemos ayudarte.</p></div>
     </div>
   </section>
 

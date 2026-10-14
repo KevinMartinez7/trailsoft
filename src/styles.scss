@@ -228,6 +228,14 @@ main section[id] { scroll-margin-top: calc(var(--header) + 3rem); }
 .footer-brand-block .footer-brand { margin-inline: auto; }
 .footer-brand-block .footer-claim { text-align: center; }
 
+.industry-list li:last-child { grid-column: auto; }
+.industry-list li>strong { grid-row: 2; }
+@media (min-width: 721px) {
+  .industry-list li,
+  .industry-list li:nth-child(4n+1),
+  .industry-list li:nth-child(4n+2) { min-height: 112px; }
+}
+
 @media (min-width: 1001px) {
   .header-inner {
     width: min(calc(100% - 2.5rem), 1320px);
