@@ -11,8 +11,8 @@ describe('TrailAnimation', () => {
     const element = fixture.nativeElement as HTMLElement;
     expect(fixture.componentInstance.currentStage().id).toBe('production');
     expect(element.textContent).toContain('Idea');
-    expect(element.textContent).toContain('Listo para crecer');
-    expect(element.textContent).toContain('SOLUCIÓN ONLINE');
+    expect(element.textContent).toContain('Producción');
+    expect(element.textContent).toContain('SISTEMA ONLINE');
   });
 
   it('advances through the configured stages without creating a duplicate cycle', async () => {
