@@ -8,7 +8,7 @@ describe('FaqSection', () => {
     fixture.detectChanges();
     const element = fixture.nativeElement as HTMLElement;
     const buttons = element.querySelectorAll<HTMLButtonElement>('button');
-    expect(element.textContent).toContain('Podemos ayudarte a mejorar una operación');
+    expect(element.textContent).toContain('En la primera conversación entendemos tu situación');
     expect(buttons[2].getAttribute('aria-expanded')).toBe('false');
     buttons[2].click(); fixture.detectChanges();
     expect(buttons[2].getAttribute('aria-expanded')).toBe('true');

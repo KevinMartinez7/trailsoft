@@ -12,9 +12,9 @@ import { MarketingTrackingService } from '../../core/services/marketing-tracking
     <section id="contacto" class="section contact-section" aria-labelledby="contact-title">
       <div class="container contact-layout">
         <div class="contact-copy">
-          <span class="eyebrow">Hablemos de tu proyecto</span>
-          <h2 id="contact-title">Contanos qué querés lograr y te ayudamos a encontrar el camino.</h2>
-          <p>No hace falta que tengas todo definido. Compartinos tu desafío y te respondemos con una orientación clara para empezar.</p>
+          <span class="eyebrow">Contacto</span>
+          <h2 id="contact-title">Conversemos sobre tu proyecto</h2>
+          <p></p>
         </div>
         <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
           <div class="form-grid">
@@ -23,7 +23,7 @@ import { MarketingTrackingService } from '../../core/services/marketing-tracking
             <div class="field"><label for="company">Empresa <b>*</b></label><input id="company" formControlName="company" autocomplete="organization" [attr.aria-invalid]="invalid('company')" aria-describedby="company-error">@if (invalid('company')) { <small id="company-error">Ingresá el nombre de tu empresa.</small> }</div>
             <div class="field"><label for="phone">Teléfono o WhatsApp <b>*</b></label><input id="phone" type="tel" formControlName="phone" autocomplete="tel" placeholder="+54 9 11 1234 5678" [attr.aria-invalid]="invalid('phone')" aria-describedby="phone-error">@if (invalid('phone')) { <small id="phone-error">Ingresá un teléfono o WhatsApp de contacto.</small> }</div>
             <div class="field field-wide"><label for="projectType">Tipo de proyecto <b>*</b></label><select id="projectType" formControlName="projectType" [attr.aria-invalid]="invalid('projectType')"><option value="" disabled>Elegí una opción</option>@for (type of projectTypes; track type) { <option [value]="type">{{ type }}</option> }</select>@if (invalid('projectType')) { <small>Elegí una opción para orientarnos.</small> }</div>
-            <div class="field field-wide"><label for="message">¿Qué necesitás construir? <b>*</b></label><textarea id="message" rows="5" formControlName="message" [attr.aria-invalid]="invalid('message')" aria-describedby="message-hint message-error"></textarea><span id="message-hint" class="hint">¿Qué querés mejorar, vender, ordenar o hacer posible?</span>@if (invalid('message')) { <small id="message-error">Contanos un poco más (mínimo 20 caracteres).</small> }</div>
+            <div class="field field-wide"><label for="message">¿Qué necesitás construir? <b>*</b></label><textarea id="message" rows="5" formControlName="message" [attr.aria-invalid]="invalid('message')" aria-describedby="message-hint message-error"></textarea><span id="message-hint" class="hint"></span>@if (invalid('message')) { <small id="message-error">Contanos un poco más (mínimo 20 caracteres).</small> }</div>
             <div class="honeypot" aria-hidden="true"><label for="website">Sitio web</label><input id="website" formControlName="website" tabindex="-1" autocomplete="off"></div>
             <input type="hidden" name="utm_source" formControlName="utm_source">
             <input type="hidden" name="utm_medium" formControlName="utm_medium">
@@ -32,7 +32,7 @@ import { MarketingTrackingService } from '../../core/services/marketing-tracking
             <input type="hidden" name="utm_content" formControlName="utm_content">
             <input type="hidden" name="gclid" formControlName="gclid">
           </div>
-          <button class="button submit-button" type="submit" [disabled]="sending()">{{ sending() ? 'Enviando…' : 'Quiero que me contacten' }} <span aria-hidden="true">↗</span></button>
+          <button class="button submit-button" type="submit" [disabled]="sending()">{{ sending() ? 'Enviando…' : 'Enviar' }} <span aria-hidden="true">↗</span></button>
         </form>
       </div>
     </section>

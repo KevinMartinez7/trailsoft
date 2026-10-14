@@ -9,8 +9,8 @@ import { FAQS } from '../../core/data/site-content';
       <div class="container faq-layout">
         <div class="section-intro">
           <span class="eyebrow">Preguntas frecuentes</span>
-          <h2 id="faq-title">Las respuestas que necesitás para dar el próximo paso.</h2>
-          <p>Te contamos cómo podemos ayudarte, cómo trabajamos y qué esperar cuando empezamos a construir juntos.</p>
+          <h2 id="faq-title">¿Tenés preguntas? Tenemos respuestas</h2>
+          <p>Respondemos las consultas más frecuentes sobre nuestros servicios y forma de trabajo.</p>
         </div>
         <div class="faq-list">
           @for (faq of faqs; track faq.question; let index = $index) {
