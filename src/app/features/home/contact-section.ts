@@ -14,7 +14,7 @@ import { MarketingTrackingService } from '../../core/services/marketing-tracking
         <div class="contact-copy">
           <span class="eyebrow">Contacto</span>
           <h2 id="contact-title">Conversemos sobre tu proyecto</h2>
-          <p></p>
+          <p>Dejanos tu mensaje y te contactaremos en menos de 24hs. No importa que no tengas todo definido, queremos conocer tus consultas y ayudarte a definir el camino para crear tu proyecto.</p>
         </div>
         <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
           <div class="form-grid">
