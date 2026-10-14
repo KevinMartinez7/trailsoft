@@ -29,6 +29,10 @@ export class HomePage {
   get whatsappUrl(): string {
     return SITE_CONFIG.whatsappNumber ? `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}` : '';
   }
+  get whatsappLabel(): string {
+    const number = SITE_CONFIG.whatsappNumber;
+    return /^54911\d{8}$/.test(number) ? `+54 9 11 ${number.slice(5, 9)}-${number.slice(9)}` : `+${number}`;
+  }
   scrollTop(): void {
     if (isPlatformBrowser(this.platformId)) window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }
