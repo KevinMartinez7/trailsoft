@@ -168,8 +168,12 @@ main section[id]{scroll-margin-top:calc(var(--header) + 1.5rem)}
 /* Visual review adjustments */
 .hero { padding-top: calc(var(--header) + clamp(1.25rem, 2.5vw, 2rem)); }
 .hero-copy { align-self: start; }
-html { scroll-padding-top: calc(var(--header) + 3rem); }
-main section[id] { scroll-margin-top: calc(var(--header) + 3rem); }
+html { scroll-padding-top: var(--header); }
+main section[id] { scroll-margin-top: 0; }
+main section[id].reveal-ready,
+main app-process-section.reveal-ready,
+main app-faq-section.reveal-ready,
+main app-contact-section.reveal-ready { transform: none; }
 
 .button,
 .footer-bottom button,
