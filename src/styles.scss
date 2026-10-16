@@ -212,7 +212,7 @@ main app-contact-section.reveal-ready { transform: none; }
 .ai-section .section-heading { margin-bottom: clamp(2.5rem, 4vw, 3.5rem); }
 
 .service-card { position: relative; }
-.service-card .card-top { margin-bottom: 3rem; }
+.service-card .card-top { height: .7rem; margin-bottom: 3rem; }
 .service-card .card-top i { display: none; }
 .service-card .service-icon { position: absolute; top: clamp(1.5rem, 3vw, 2.5rem); right: clamp(1.5rem, 3vw, 2.5rem); width: 32px; height: 32px; margin: 0; border-radius: 6px; }
 .service-card .service-icon svg { width: 22px; height: 22px; }

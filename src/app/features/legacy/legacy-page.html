@@ -52,7 +52,7 @@
       <div class="services-grid">
         @for (service of services; track service.number) {
           <article class="service-card" [class.priority-axis]="['03', '04', '05', '06'].includes(service.number)" appReveal>
-            <div class="card-top"><span>{{ service.number }}</span><i aria-hidden="true"></i></div>
+            <div class="card-top" aria-hidden="true"></div>
             <div class="service-icon"><app-service-icon [kind]="service.number" /></div>
             <h3>{{ service.title }}</h3><p>{{ service.description }}</p>
             <ul>@for (item of service.items; track item) { <li>{{ item }}</li> }</ul>
