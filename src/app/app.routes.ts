@@ -17,7 +17,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./features/home/home-page').then((m) => m.HomePage),
-    title: 'TrailSoft | Soluciones digitales para hacer crecer tu negocio'
+    title: 'TrailSoft | Soluciones de software para potenciar tu negocio'
   },
   { path: '**', redirectTo: '' }
 ];
