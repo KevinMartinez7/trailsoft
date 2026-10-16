@@ -11,7 +11,6 @@ import { PROCESS_STEPS } from '../../core/data/site-content';
           <span class="eyebrow">Nuestro proceso</span>
           <h2 id="process-title">Desde la idea a la realidad</h2>
           <p>Seguimos un proceso claro y confiable, manteniendo comunicación constante con vos en cada etapa.</p>
-          <div class="process-key"><span></span> Siempre sabés cuál es el próximo paso</div>
         </div>
         <ol class="process-list">
           @for (step of steps; track step.number) {

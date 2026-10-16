@@ -322,7 +322,7 @@ a.footer-whatsapp:hover { border-color: rgba(52, 207, 190, .45); background: rgb
   .hero-layout > * { min-width: 0; }
   .hero-copy { width: 100% !important; max-width: 100% !important; min-width: 0; padding-right: 0; }
   .hero h1 { width: 100%; max-width: 100%; font-size: clamp(2.1rem, 9vw, 3rem); overflow-wrap: anywhere; text-align: center; }
-  .hero-lead { width: 100% !important; max-width: 100% !important; overflow-wrap: anywhere; text-align: center; }
+  .hero-lead { width: 100% !important; max-width: 100% !important; overflow-wrap: anywhere; text-align: left; }
   .hero-actions { width: 100% !important; max-width: 100% !important; padding-right: 0; align-items: stretch; }
   .hero-actions .button, .hero-actions .text-link { width: 100%; max-width: 100%; min-width: 0; }
   .hero-layout > app-trail-animation { width: 100%; max-width: 100%; }
