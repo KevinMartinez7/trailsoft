@@ -85,7 +85,7 @@
 
   <section class="section differences-section" aria-labelledby="differences-title" appReveal>
     <div class="container"><span class="eyebrow">La diferencia está en la base</span><h2 id="differences-title">Pensado para producción,<br>no solamente para una demo.</h2>
-      <div class="differences-grid">@for (item of differentiators; track item.title; let i = $index) { <article><span>0{{ i + 1 }}</span><h3>{{ item.title }}</h3><p>{{ item.description }}</p></article> }</div>
+      <div class="differences-grid">@for (item of differentiators; track item.title) { <article><h3>{{ item.title }}</h3><p>{{ item.description }}</p></article> }</div>
     </div>
   </section>
 
