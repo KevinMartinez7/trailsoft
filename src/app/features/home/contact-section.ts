@@ -20,7 +20,7 @@ import { MarketingTrackingService } from '../../core/services/marketing-tracking
           <div class="form-grid">
             <div class="field"><label for="name">Nombre y apellido <b>*</b></label><input id="name" formControlName="name" autocomplete="name" [attr.aria-invalid]="invalid('name')" aria-describedby="name-error">@if (invalid('name')) { <small id="name-error">Ingresá tu nombre y apellido.</small> }</div>
             <div class="field"><label for="email">Correo electrónico <b>*</b></label><input id="email" type="email" formControlName="email" autocomplete="email" [attr.aria-invalid]="invalid('email')" aria-describedby="email-error">@if (invalid('email')) { <small id="email-error">Ingresá un correo electrónico válido.</small> }</div>
-            <div class="field"><label for="company">Empresa <b>*</b></label><input id="company" formControlName="company" autocomplete="organization" [attr.aria-invalid]="invalid('company')" aria-describedby="company-error">@if (invalid('company')) { <small id="company-error">Ingresá el nombre de tu empresa.</small> }</div>
+            <div class="field"><label for="company">Empresa</label><input id="company" formControlName="company" autocomplete="organization"></div>
             <div class="field"><label for="phone">Teléfono o WhatsApp <b>*</b></label><input id="phone" type="tel" formControlName="phone" autocomplete="tel" placeholder="+54 9 11 1234 5678" [attr.aria-invalid]="invalid('phone')" aria-describedby="phone-error">@if (invalid('phone')) { <small id="phone-error">Ingresá un teléfono o WhatsApp de contacto.</small> }</div>
             <div class="field field-wide"><label for="projectType">Tipo de proyecto <b>*</b></label><select id="projectType" formControlName="projectType" [attr.aria-invalid]="invalid('projectType')"><option value="" disabled>Elegí una opción</option>@for (type of projectTypes; track type) { <option [value]="type">{{ type }}</option> }</select>@if (invalid('projectType')) { <small>Elegí una opción para orientarnos.</small> }</div>
             <div class="field field-wide"><label for="message">¿Qué necesitás construir? <b>*</b></label><textarea id="message" rows="5" formControlName="message" [attr.aria-invalid]="invalid('message')" aria-describedby="message-hint message-error"></textarea><span id="message-hint" class="hint"></span>@if (invalid('message')) { <small id="message-error">Contanos un poco más (mínimo 20 caracteres).</small> }</div>
@@ -58,9 +58,9 @@ export class ContactSection {
   readonly sending = signal(false);
   readonly status = signal('');
   readonly statusType = signal<'idle' | 'success' | 'error'>('idle');
-  readonly projectTypes = ['Mejorar mi operación', 'Crear una web o app', 'Lanzar una idea', 'Conectar mis herramientas', 'Automatizar tareas', 'Incorporar IA', 'Todavía no estoy seguro'];
+  readonly projectTypes = ['Mejorar mi operación', 'Crear una web o app', 'Lanzar una idea', 'Conectar mis herramientas', 'Automatizar tareas', 'Incorporar IA', 'Todavía no estoy seguro', 'Otro'];
   readonly form = this.fb.nonNullable.group({
-    name: ['', [Validators.required]], company: ['', [Validators.required]], email: ['', [Validators.required, Validators.email]], phone: ['', [Validators.required]],
+    name: ['', [Validators.required]], company: [''], email: ['', [Validators.required, Validators.email]], phone: ['', [Validators.required]],
     projectType: ['', [Validators.required]], message: ['', [Validators.required, Validators.minLength(20)]], website: [''],
     utm_source: [''], utm_medium: [''], utm_campaign: [''], utm_term: [''], utm_content: [''], gclid: ['']
   });

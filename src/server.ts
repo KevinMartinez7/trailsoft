@@ -84,7 +84,7 @@ function buildContactEmail(data: ContactFormData): string {
       <div style="display:inline-block;margin-bottom:18px;padding:8px 12px;border:1px solid rgba(52,207,190,.35);border-radius:999px;color:#b9c9d2;font-size:12px;">● &nbsp;Disponible · Respuesta en menos de 24hs.</div>
       <table role="presentation" cellspacing="0" cellpadding="0" width="100%">
         ${row('Nombre y apellido', escapeHtml(data.name))}
-        ${row('Empresa', escapeHtml(data.company))}
+        ${row('Empresa', escapeHtml(data.company || 'No especificada'))}
         ${row('Correo electrónico', escapeHtml(data.email), true)}
         ${row('Teléfono / WhatsApp', escapeHtml(data.phone), true)}
         ${row('Tipo de proyecto', escapeHtml(data.projectType))}
@@ -108,7 +108,7 @@ function buildContactText(data: ContactFormData): string {
     : '';
   return [
     'Nueva consulta desde TrailSoft', '',
-    `Nombre y apellido: ${data.name}`, `Empresa: ${data.company}`,
+    `Nombre y apellido: ${data.name}`, `Empresa: ${data.company || 'No especificada'}`,
     `Correo electrónico: ${data.email}`, `Teléfono / WhatsApp: ${data.phone}`,
     `Tipo de proyecto: ${data.projectType}`, '', `Qué necesita construir:\n${data.message}`,
     '', 'Atribución:', `utm_source: ${data.utm_source || '-'}`, `utm_medium: ${data.utm_medium || '-'}`,
@@ -181,7 +181,7 @@ app.post('/api/contact', async (req, res) => {
   };
 
   const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
-  if (!data.name || !data.company || !emailIsValid || !data.phone || !data.projectType || data.message.length < 20) {
+  if (!data.name || !emailIsValid || !data.phone || !data.projectType || data.message.length < 20) {
     res.status(400).json({ error: 'INVALID_FORM' });
     return;
   }

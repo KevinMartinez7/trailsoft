@@ -7,12 +7,12 @@ export const NAV_ITEMS: readonly NavItem[] = [
 ];
 
 export const SERVICES: readonly Service[] = [
-  { number: '01', title: 'Aplicaciones web', description: 'Plataformas rápidas, seguras y escalables accesibles desde cualquier dispositivo.', items: ['Más consultas', 'Más ventas', 'Atención simple', 'Operaciones', 'Resultados'] },
-  { number: '02', title: 'Aplicaciones móviles', description: 'Desarrollos para iOS y Android enfocados en experiencia de tus usuarios, rendimiento y crecimiento.', items: ['Experiencias móviles', 'Reservas', 'Notificaciones', 'Clientes conectados', 'Equipos ágiles'] },
-  { number: '03', title: 'Software a medida', description: 'Sistemas que centralizan y mejoran la operación y gestión de tu empresa.', items: ['Procesos claros', 'Gestión simple', 'Turnos y reservas', 'Información centralizada', 'Menos tareas manuales'] },
-  { number: '04', title: 'MVP y prototipos', description: 'Convertimos tu idea de emprendimiento en una primera versión que puedas mostrar, probar y validar con clientes reales antes de escalar.', items: ['Idea ordenada', 'Prototipo', 'Primera versión', 'Opiniones reales', 'Próximo paso'] },
-  { number: '05', title: 'Integraciones y APIs', description: 'Conectamos tu sistema con servicios externos para intercambiar datos y utilizar funcionalidades de otras plataformas.', items: ['Tus herramientas', 'Información al día', 'Menos errores', 'Procesos ágiles', 'Más control'] },
-  { number: '06', title: 'IA y automatizaciones', description: 'Automatizamos tareas y procesos para ahorrar tiempo, reducir trabajo manual y mejorar la eficiencia de tu negocio.', items: ['Asistentes', 'Tareas automáticas', 'Información útil', 'Respuestas rápidas', 'Mejores decisiones'] }
+  { number: '01', title: 'Aplicaciones web', description: 'Plataformas rápidas, seguras y escalables accesibles desde cualquier dispositivo.', items: ['Dashboards', 'SaaS', 'Marketplaces', 'Herramientas internas', 'Plataformas web'] },
+  { number: '02', title: 'Aplicaciones móviles', description: 'Desarrollos para iOS y Android enfocados en experiencia de tus usuarios, rendimiento y crecimiento.', items: ['Apps para clientes', 'Apps internas', 'Soluciones multiplataforma', 'Web a mobile'] },
+  { number: '03', title: 'Software a medida', description: 'Sistemas que centralizan y mejoran la operación y gestión de tu empresa.', items: ['ERP y CRM personalizados', 'Sistemas de gestión', 'Reservas y turnos', 'Membresías', 'Automatización'] },
+  { number: '04', title: 'MVP y prototipos', description: 'Convertimos tu idea de emprendimiento en una primera versión que puedas mostrar, probar y validar con clientes reales antes de escalar.', items: ['Desarrollo de MVP', 'Prototipos funcionales', 'Validación', 'Desarrollo desde cero', 'Evolución de producto'] },
+  { number: '05', title: 'Integraciones y APIs', description: 'Conectamos tu sistema con servicios externos para intercambiar datos y utilizar funcionalidades de otras plataformas.', items: ['Webhooks', 'CRM y ERP', 'Servicios backend', 'Sincronización de datos'] },
+  { number: '06', title: 'IA y automatizaciones', description: 'Automatizamos tareas y procesos para ahorrar tiempo, reducir trabajo manual y mejorar la eficiencia de tu negocio.', items: ['Asistentes y agentes', 'Procesamiento documental', 'Análisis de datos', 'Reportes automáticos', 'Pipelines'] }
 ];
 
 export const PROCESS_STEPS: readonly ProcessStep[] = [

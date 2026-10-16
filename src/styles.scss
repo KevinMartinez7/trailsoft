@@ -338,13 +338,6 @@ a.footer-whatsapp:hover { border-color: rgba(52, 207, 190, .45); background: rgb
   .hero-layout { grid-template-columns: minmax(0, 1.1fr) minmax(620px, .9fr); }
 }
 
-@media (min-width: 1001px) {
-  .hero-layout > app-trail-animation {
-    width: calc(100% + clamp(2rem, 3.5vw, 3rem) + min(2rem, max(1.25rem, calc(50vw - 750px))));
-    margin-left: calc(-1 * clamp(2rem, 3.5vw, 3rem));
-  }
-}
-
 .mobile-only-break { display: none; }
 .desktop-space { display: inline; }
 @media (max-width: 720px) {

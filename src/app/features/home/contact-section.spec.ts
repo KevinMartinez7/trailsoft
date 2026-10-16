@@ -13,9 +13,10 @@ describe('ContactSection', () => {
     fixture.detectChanges();
     const element = fixture.nativeElement as HTMLElement;
     expect(element.querySelector('#name')?.getAttribute('aria-invalid')).toBe('true');
-    expect(element.querySelector('#company')?.getAttribute('aria-invalid')).toBe('true');
+    expect(fixture.componentInstance.form.controls.company.valid).toBeTrue();
+    expect(fixture.componentInstance.projectTypes).toContain('Otro');
     expect(element.querySelector('#phone')?.getAttribute('aria-invalid')).toBe('true');
-    expect(element.querySelector('#company-error')).toBeTruthy();
+    expect(element.querySelector('#company-error')).toBeNull();
     expect(element.querySelector('#phone-error')).toBeTruthy();
     expect(element.textContent).toContain('Revisá los campos señalados');
   });
@@ -24,7 +25,7 @@ describe('ContactSection', () => {
     const contactService = { send: jasmine.createSpy().and.returnValue(throwError(() => new Error('MAIL_NOT_CONFIGURED'))) };
     await TestBed.configureTestingModule({ imports: [ContactSection], providers: [provideHttpClient(), { provide: ContactService, useValue: contactService }] }).compileComponents();
     const fixture = TestBed.createComponent(ContactSection);
-    fixture.componentInstance.form.patchValue({ name: 'Ana', company: 'TrailSoft', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP', message: 'Necesitamos validar un producto digital.', website: '' });
+    fixture.componentInstance.form.patchValue({ name: 'Ana', company: '', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP', message: 'Necesitamos validar un producto digital.', website: '' });
     fixture.componentInstance.submit(); fixture.detectChanges();
     expect(fixture.componentInstance.status()).toContain('No pudimos enviar');
   });
@@ -51,7 +52,7 @@ describe('ContactSection', () => {
     const fixture = TestBed.createComponent(ContactSection);
     fixture.detectChanges();
     fixture.componentInstance.form.patchValue({
-      name: 'Ana', company: 'TrailSoft', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP',
+      name: 'Ana', company: '', email: 'ana@example.com', phone: '+5491112345678', projectType: 'MVP',
       message: 'Necesitamos validar un producto digital.', ...attribution
     });
     fixture.componentInstance.submit();
