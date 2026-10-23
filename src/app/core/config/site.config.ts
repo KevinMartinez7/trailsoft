@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   canonicalUrl: '',
   contactEndpoint: '/api/contact',
   contactEmail: 'trailsoftoficial@gmail.com',
-  whatsappNumber: '5491137877561',
+  whatsappNumber: '5491125211058',
   whatsappMessage: 'Hola, quiero conversar sobre un proyecto de software con TrailSoft.',
   linkedInUrl: ''
 } as const;
