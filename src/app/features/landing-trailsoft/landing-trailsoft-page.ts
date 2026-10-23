@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, PLATFORM_ID, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { SiteHeader } from '../../core/layout/site-header';
 import { INDUSTRIES, SERVICES } from '../../core/data/site-content';
 import { NavItem } from '../../core/models/content.models';
@@ -36,6 +37,27 @@ export class LandingTrailsoftPage {
     { label: 'Preguntas frecuentes', href: '#preguntas' }
   ];
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly router = inject(Router);
+
+  navigateToSection(event: MouseEvent, fragment: string): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    const link = event.target instanceof Element ? event.target.closest('a[href="#servicios"]') : null;
+    if (!link) return;
+
+    const section = document.getElementById(fragment);
+    if (!section) return;
+
+    event.preventDefault();
+    void this.router.navigate([], {
+      fragment,
+      queryParamsHandling: 'preserve',
+      replaceUrl: true
+    });
+
+    const headerHeight = document.querySelector<HTMLElement>('.site-header')?.getBoundingClientRect().height ?? 0;
+    const top = Math.max(0, section.getBoundingClientRect().top + window.scrollY - headerHeight);
+    window.scrollTo({ top, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  }
 
   scrollTop(): void {
     if (isPlatformBrowser(this.platformId)) {

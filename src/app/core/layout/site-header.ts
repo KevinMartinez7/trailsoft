@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { afterNextRender, ChangeDetectionStrategy, Component, DestroyRef, ElementRef, HostListener, PLATFORM_ID, Renderer2, input, signal, viewChild, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { NAV_ITEMS } from '../data/site-content';
 import { NavItem } from '../models/content.models';
 
@@ -35,6 +36,7 @@ export class SiteHeader {
   readonly activeSection = signal('inicio');
   private readonly platformId = inject(PLATFORM_ID);
   private readonly renderer = inject(Renderer2);
+  private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
   private readonly menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
 
@@ -78,7 +80,11 @@ export class SiteHeader {
     const headerHeight = header?.getBoundingClientRect().height ?? 0;
     const top = Math.max(0, section.getBoundingClientRect().top + window.scrollY - headerHeight);
     window.scrollTo({ top, behavior: 'smooth' });
-    history.replaceState(null, '', href);
+    void this.router.navigate([], {
+      fragment: href.slice(1),
+      queryParamsHandling: 'preserve',
+      replaceUrl: true
+    });
   }
 
   toggleMenu(): void {
