@@ -41,7 +41,7 @@ export class LandingTrailsoftPage {
 
   navigateToSection(event: MouseEvent, fragment: string): void {
     if (!isPlatformBrowser(this.platformId)) return;
-    const link = event.target instanceof Element ? event.target.closest('a[href="#servicios"]') : null;
+    const link = event.target instanceof Element ? event.target.closest(`a[href="#${fragment}"]`) : null;
     if (!link) return;
 
     const section = document.getElementById(fragment);
